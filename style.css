@@ -1,0 +1,249 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+
+#logo {
+    width: 150px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 0 5% 5% 0;
+    border-right: 5px solid #2980b9;
+}
+
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    position: relative;
+    word-spacing: 1.5rem;
+    font-weight: bold;
+    max-width: 250px;
+    right: -80%;
+    top: -15px;
+}
+
+h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: #2c3e50; 
+}
+
+h1 {
+    font-size: 2rem; 
+    position: relative;
+    top: 10px;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 1rem;
+    flex: 1;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    line-height: 1.5;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #ddd;
+}
+
+
+#main-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+}
+
+#resources, #map, #input {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#map {
+    grid-column: span 2;
+}
+
+#sidebar {
+    background-color: #ecf0f1;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+button, .button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+button:hover, .button:hover, a:hover {
+    background-color: #2980b9;
+}
+
+a:hover{
+    border: solid 2px#2980b9;
+    border-radius: 5%;
+}
+
+input, select, textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#resourcesTable {
+    width: 100%; 
+    border-collapse: collapse; 
+    text-align: left;
+}
+
+#resourcesTable th, #resourcesTable td {
+    padding: 8px; 
+    border-bottom: 1px solid #ddd; 
+}
+
+#resourcesTable th {
+    background-color: #ecf0f1; 
+    color: #333;
+}
+
+#resourcesTable tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+#resourcesTable tr:hover {
+    background-color: #ddd; 
+}
+
+#mapPlaceholder {
+    height: 300px; 
+    background-color: #e7e7e7; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 300px; 
+    width: 100%;
+}
+
+#submit:hover {
+    background-color: #2980b9;
+}
+
+#submit:active {
+    background-color: #ccc;
+}
+
+#sidebar {
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#searchTool {
+    margin-bottom: 1rem;
+}
+
+#searchTool input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+#addResourceBtn {
+    display: block; 
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#addResourceBtn:hover {
+    background-color: #2980b9;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+    #resourcesTable, #resourcesTable th, #resourcesTable td {
+        display: block;
+    }
+    #resourcesTable th, #resourcesTable td {
+        text-align: right;
+        padding-left: 50%;
+    }
+    #resourcesTable th {
+        position: absolute;
+        left: 0;
+        top: auto;
+        width: 50%;
+    }
+    #resourcesTable tr {
+        margin-bottom: 1rem;
+    }
+    #mapPlaceholder {
+        height: 200px; 
+        line-height: 200px;
+    }
+    footer {
+        padding: 1rem 0.5rem;
+    }
+    
+    footer nav a {
+        padding: 0 0.2rem;
+    }
+}
+
