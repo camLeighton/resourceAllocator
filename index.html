@@ -11,7 +11,6 @@
     <header id="header">
         <img src="./resources/logo2.png" id="logo">
         <h1>Resource Allocator</h1>
-        <!-- Navigation Menu (if applicable) -->
         <nav>
             <a href="#resources">Resources</a>
             <a href="#map">Map</a>
@@ -22,46 +21,34 @@
         <main id="main-info">
             <section id="resources">
                 <h2>Current Resources</h2>
+                <div id="searchTool">
+                    <label for="searchResources">Search Resources:</label>
+                    <input type="text" id="searchResources" name="searchResources" placeholder="Type to search...">
+                </div>
                 <table id="resourcesTable">
                     <thead>
                         <tr>
                             <th>Resource ID</th>
+                            <th>Resource Type</th>
+                            <th>Location</th>
                             <th>Name</th>
-                            <th>Type</th>
                             <th>Quantity</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>Fuel</td>
-                            <td>Hydrocarbon</td>
-                            <td>10,000L</td>
-                            <td>Available</td>
-                        </tr>
-                        <tr>
-                            <td>002</td>
-                            <td>Ammunition</td>
-                            <td>Shells</td>
-                            <td>500 units</td>
-                            <td>In Use</td>
-                        </tr>
-                        <!-- Add more rows as needed -->
+                        <!-- Table rows will be added here -->
                     </tbody>
                 </table>
             </section>
             
-        
             <section id="map">
                 <h2>Map View</h2>
                 <div id="mapPlaceholder">
-                    <!-- Map will be integrated here -->
-                    <p>Map integration coming soon...</p>
+                    <div id="mapView" style="height: 300px; width: 100%;"></div>
                 </div>
             </section>
             
-        
             <section id="input">
                 <h2>User Input</h2>
                 <form id="resourceForm">
@@ -69,40 +56,28 @@
                     <select id="resourceType" name="resourceType">
                         <option value="fuel">Fuel</option>
                         <option value="ammunition">Ammunition</option>
-                        <!-- Add other resource types as options -->
                     </select>
-            
+                
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" placeholder="Enter location">
+
+                    <label for="resourceName">Name:</label>
+                    <input type="text" id="resourceName" name="resourceName" placeholder="Enter resource name">
+                
                     <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity">
-            
+                    <input type="number" id="quantity" name="quantity" step="100" placeholder="Enter quantity">
+                
                     <label for="status">Status:</label>
                     <select id="status" name="status">
                         <option value="available">Available</option>
-                        <option value="inUse">In Use</option>
-                        <!-- Add other status options as needed -->
+                        <option value="in use">In Use</option>
                     </select>
-            
+                
                     <input type="submit" value="Submit" id="submit">
                 </form>
             </section>
-            
         </main>
         
-
-        <aside id="sidebar">
-            <h2>Tools</h2>
-            <div id="searchTool">
-                <label for="searchResources">Search Resources:</label>
-                <input type="text" id="searchResources" name="searchResources" placeholder="Type to search...">
-            </div>
-            <div id="addResourceTool">
-                <button id="addResourceBtn">Add New Resource</button>
-            </div>
-            <!-- You can add more tools as needed -->
-        </aside>
-        
-    
-
         <footer>
             <p>&copy; 2023 Resource Allocator Project. All rights reserved.</p>
             <p>Contact us at <a href="mailto:contact@example.com">contact@example.com</a></p>
@@ -110,5 +85,6 @@
          
     </div>
     <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBO_M4eOWp9xJGfX-wPXEFfoAqSIBMu9Cc&callback=initMap"></script>
 </body>
 </html>
