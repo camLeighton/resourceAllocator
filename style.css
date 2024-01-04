@@ -168,7 +168,7 @@ input, select, textarea {
 }
 
 #mapPlaceholder {
-    height: 300px;
+    height: 500px;
     background-color: #e7e7e7;
     border: 1px solid #ccc;
     border-radius: 5px;

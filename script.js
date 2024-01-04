@@ -13,19 +13,37 @@ resources.forEach(resource => {
 });
 
 const fetchWeatherData = async (city) => {
-    const apiKey = 'ddf1ad5e7465f6f037dfbb822f347900';
+    const apiKey = 'ddf1ad5e7465f6f037dfbb822f347900'; 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
     try {
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data); 
+        displayWeatherData(data); // Function to display the data
     } catch (error) {
         console.error('Error fetching weather data:', error);
     }
 };
 
-fetchWeatherData('London'); 
+function displayWeatherData(data) {
+    const weatherDisplay = document.getElementById('weatherDisplay');
+    if (data.main) {
+        const tempCelsius = (data.main.temp - 273.15).toFixed(2); 
+
+        weatherDisplay.innerHTML = `
+            <p><strong>${data.name}</strong>: ${data.weather[0].main}, ${tempCelsius}°C</p>
+        `;
+    } else {
+        weatherDisplay.innerHTML = '<p>Weather data not available</p>';
+    }
+}
+
+
+document.getElementById('weatherForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const city = document.getElementById('weatherCity').value;
+    fetchWeatherData(city);
+});
 
 let map;
 
@@ -35,8 +53,6 @@ function initMap() {
         zoom: 8,
     });
 }
-
-
 
 document.getElementById('resourceForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -96,28 +112,6 @@ document.getElementById('searchResources').addEventListener('input', function(ev
         }
     }
 });
-
-// Function to toggle the visibility of the add resource form
-function toggleAddResourceForm() {
-    var form = document.getElementById('addResourceForm');
-    if (form.style.display === 'none' || form.style.display === '') {
-        form.style.display = 'block';
-    } else {
-        form.style.display = 'none';
-    }
-}
-
-function addResource() {
-    // Get values from the form
-    var resourceName = document.getElementById('newResourceName').value;
-    // ...get other values...
-
-    // Add to table (similar to your existing form submission logic)
-    // ...
-
-    // Save to local storage
-    saveResourcesToLocalStorage();
-}
 
 function saveResourcesToLocalStorage() {
     var resources = [];
